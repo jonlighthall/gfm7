@@ -1,6 +1,6 @@
 {
   TFile *f = new TFile("output.root","recreate");
-  TTree *t = new TTree();
+  TTree *t = new TTree("t","mca data");
   t->ReadFile("output.mca","x/F:y/F:e/F:q/F:t/F");
   t->Write("");
   if(!((TCanvas *) gROOT->FindObject("cFit"))) {
@@ -10,11 +10,11 @@
   }
   cFit->Divide(2,2);
   cFit->cd(1);
-  t->Draw("x:y","","col");
+  t->Draw("y:x","","col");
     cFit->cd(2);
-  t->Draw("x:t","","col");
+  t->Draw("t:x","","col");
   cFit->cd(3);
-  t->Draw("x:e","","col");
+  t->Draw("e:x","","col");
   cFit->cd(4);
-  t->Draw("t:e","","col");
+  t->Draw("e:t","","col");
 }
