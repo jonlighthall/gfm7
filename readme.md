@@ -25,3 +25,13 @@ The following output files are generated
  * `27Al.lis` Not used.
 
 The output files will have the same base filename as the input file.
+
+## Viewing the output
+The macro `mca2root.C` has been included to convert a `.mca` file to a `.root` file populated with a TTree.
+The macro expects a file name `output.mca`.
+The file `ren.bat` has been included to rename the file.
+The To run the macro, use the following command.
+````
+root -l mca2root.C
+````
+This will creat a ROOT file named `output.root` with a TTree named `t`.
