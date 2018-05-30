@@ -163,10 +163,10 @@ C****                              !Changes from here... !JDL 10-MAR-84
      2         10x,' t(target) =', f10.1,' microg/cm2')            !MP 3
 1116  format(//10x,' foil      =   ',a2,/                          !MP 3
      1         10x,' t(foil)   =', f10.1,' microg/cm2')            !MP 3
-11165 format(//10x,' target energy loss (MeV) =', f10.2/
+11165 format(//10x,'     target energy loss (MeV) =', f10.2/
      1         10x,' target fwhm straggling (keV) =', f10.1)
-11166 format(//10x,' foil energy loss (MeV) =', f10.2/
-     1         10x,' foil fwhm straggling (keV) =', f10.1)
+11166 format(//10x,'       foil energy loss (MeV) =', f10.2/
+     1         10x,'   foil fwhm straggling (keV) =', f10.1)
 1117  format(//10x,' energy before target =', f10.4,' MeV',/       !MP 2
      1         10x,' energy after  target =', f10.4,' MeV',/       !MP 2
      2         10x,' energy after  foil   =', f10.4,' MeV')        !MP 2
@@ -372,7 +372,7 @@ C
       IF (AGAS.EQ.0.) AGAS = 28.
       IF (ZION.EQ.0.) ZION = 28.
       IF (GAS.EQ.0.)   PRESS = 0.
-      RHOGAS = AGAS*PRESS/(22.4*760.)
+      RHOGAS = AGAS*PRESS/(22.414*760.000)
       GASK = (RHOGAS*C**2)/EMASS
       ALPHAK = .014*DSQRT(ZION*ZGAS/ 
      1                             (ZION**.3333+ZGAS**.3333))
@@ -1048,9 +1048,9 @@ c GASENE [MeV] final energy of particle
 c q final charge state
 c t*1E9 [nsec] time of flight throughout instrument
 c 
-      WRITE(3,3333) XO(J),yo(j),GASENE,q0,t*1.E9
- 3333 FORMAT(5F10.4)
-      IF(NRXS .NE. 13) GO TO 256
+      WRITE(3,3333) XO(J),yo(j),GASENE,q0,t*1.E9,VXO(J),VYO(J)
+ 3333 FORMAT(7F12.4)
+      IF(NRXS .NE. 13) GO TO 256 !SPECTRUM ENHANCEMENT OPTION
       K=1
       XOJ  = XO(J)
       VXOJ = VXO(J)
