@@ -1,7 +1,7 @@
 {
   TFile *f = new TFile("output.root","recreate");
   TTree *t = new TTree("t","mca data");
-  t->ReadFile("output.mca","x/F:y/F:e/F:q/F:t/F");
+  t->ReadFile("output.mca","x/F:y/F:e/F:q/F:t/F:theta/F:phi/F");
   t->Write("");
   if(!((TCanvas *) gROOT->FindObject("cFit"))) {
     TCanvas * cFit=new TCanvas("cFit","cFit",0,0,675,615);
